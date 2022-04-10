@@ -6,7 +6,10 @@ namespace MoodAnalyser
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Mood Analyser Program!");
+            Console.WriteLine("Mood Analyser program using Exceptions");
+
+            MoodAnalyserr moodAnalyserr = new MoodAnalyserr();
+            Console.WriteLine(moodAnalyserr.MoodCheck("Iam in Sad Mood"));
         }
     }
 }
