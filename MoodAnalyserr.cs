@@ -1,9 +1,7 @@
 ﻿using System;
-
 namespace MoodAnalyser
 {
     public class MoodAnalyserr
-
     {
         //constants
         private const string SAD_MESSAGE = "Iam in Sad Mood";
@@ -14,25 +12,23 @@ namespace MoodAnalyser
         {
             this.message = message;
         }
-
+       
         public string MoodCheck()
         {
             try
             {
-                if (message == null)
-                    throw new Exception("Invalid Mood");
+                if (message == null || message == string.Empty)
+                    throw new Exception();
                 if (message == SAD_MESSAGE)
                     return "SAD";
                 if (message == HAPPY_MESSAGE)
                     return "HAPPY";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
+                return "HAPPY";
             }
             return null;
         }
     }
 }
-
- 
