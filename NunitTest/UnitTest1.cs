@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using MoodAnalyser;
 
-namespace Test
+namespace NUnitMoodAnalyser.Test
 {
 
     public class Tests
@@ -16,14 +16,12 @@ namespace Test
             string message = "Iam in Sad Mood";
             string expected = "SAD";
             //Act
-            MoodAnalyserr mood = new MoodAnalyserr();
-            string result = mood.MoodCheck(message);
+            MoodAnalyserr mood = new MoodAnalyserr(message);
+            string result = mood.MoodCheck();
             //Assert
             Assert.AreEqual(expected, result);
         }
-        /// <summary>
-        /// Check for Happy mood, return "HAPPY" message.
-        /// </summary>
+    
         [Test]
         public void WhenGivenHappyMood_ReturnsHappyMessage()
         {
@@ -31,10 +29,10 @@ namespace Test
             string message = "Iam in Any Mood";
             string expected = "HAPPY";
             //Act
-            MoodAnalyserr mood = new MoodAnalyserr();
-            string result = mood.MoodCheck(message);
+            MoodAnalyserr mood = new MoodAnalyserr(message);
+            string result = mood.MoodCheck();
             //Assert
             Assert.AreEqual(expected, result);
         }
-    }
+    }   
 }
