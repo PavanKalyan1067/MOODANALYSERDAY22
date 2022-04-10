@@ -12,7 +12,7 @@ namespace MoodAnalyser
         private readonly string message;
         public MoodAnalyserr()
         {
-            message = SAD_MESSAGE;
+            message = HAPPY_MESSAGE;
             //checking for null
             if (message != null)
                 message = message.ToLower();
@@ -34,7 +34,7 @@ namespace MoodAnalyser
                     throw new MoodAnalysisException(MoodAnalysisException.Errors.EMPTY);
                 if (message.Contains("sad"))
                     return "SAD";
-                if (message.Contains("happy"))
+                if (message.Contains("any"))
                     return "HAPPY";
             }
             catch (MoodAnalysisException ex)

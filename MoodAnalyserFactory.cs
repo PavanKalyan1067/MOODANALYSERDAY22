@@ -93,7 +93,7 @@ namespace MoodAnalyser
         }
 
 
-        public void InvokeMethod()
+        public string InvokeMethod()
         {
             //creating an object of class by CreatAbjectAtRuntime() method.
             object moodAnalysisObj = CreateObjectAtRuntime();
@@ -106,7 +106,7 @@ namespace MoodAnalyser
             //invoking method using predefined Invoke method with object and passing string parameter.
             //return object type.
             var outputMessage = methodMoodCheck.Invoke(moodAnalysisObj, null);
-            Console.WriteLine("output of mood check during runtime : " + outputMessage.ToString());
+            return outputMessage.ToString();
         }
     }
 }
