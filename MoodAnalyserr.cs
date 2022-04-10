@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-
 namespace MoodAnalyser
 {
     public class MoodAnalyserr
@@ -9,17 +8,18 @@ namespace MoodAnalyser
         private const string SAD_MESSAGE = "Iam in Sad Mood";
         private const string HAPPY_MESSAGE = "Iam in Any Mood";
         //variables
-        private string message;
+        private readonly string message;
         public MoodAnalyserr()
         {
+
 
         }
         public MoodAnalyserr(string message)
         {
             this.message = message;
         }
-        
-        public string MoodCheck(string message)
+
+        public string MoodCheck()
         {
             try
             {
@@ -34,10 +34,16 @@ namespace MoodAnalyser
             {
                 return "HAPPY";
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Done");
+            }
             return null;
         }
-
-
-
     }
+
 }
