@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Reflection;
+using System.Runtime.Serialization;
+
 namespace MoodAnalyser
 {
+
+
     public class MoodAnalyserr
     {
         //constants
@@ -11,33 +15,33 @@ namespace MoodAnalyser
         private readonly string message;
         public MoodAnalyserr()
         {
-
-
         }
         public MoodAnalyserr(string message)
         {
             this.message = message;
         }
-
+        
         public string MoodCheck()
         {
             try
             {
                 if (message == null || message == string.Empty)
-                    throw new MoodAnalysisException();
+                    throw new MoodAnalysisException(message);
                 if (message == SAD_MESSAGE)
                     return "SAD";
                 if (message == HAPPY_MESSAGE)
                     return "HAPPY";
             }
-            catch (MoodAnalysisException)
+            catch (MoodAnalysisException ex)
             {
-                return "HAPPY";
+                Console.WriteLine(ex.Message);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+
             }
+
             finally
             {
                 Console.WriteLine("Done");
@@ -45,5 +49,5 @@ namespace MoodAnalyser
             return null;
         }
     }
-
 }
+    
