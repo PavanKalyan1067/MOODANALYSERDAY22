@@ -103,9 +103,13 @@ namespace NUnitMoodAnalyser.Test
                 Console.WriteLine("Done Test case: WhenGivenClassName_ReturnsObject");
             }
         }
+        /// <summary>
+        /// Test case 4.2 - Given Class Name When Improper Should Throw MoodAnalysisException with Parameterized Constructor
+        /// </summary>
         [Test]
         public void WhenGivenClassNameImproper_ThrowsMoodAnalysisException()
         {
+
             try
             {
                 //passing improper class name will return me Null value which means an improper class name has been
@@ -134,7 +138,7 @@ namespace NUnitMoodAnalyser.Test
         }
 
         /// <summary>
-        /// check when given Class name should return object name
+        /// Test Case 5.1 - check when given Class name should return object name
         /// </summary>
         [Test]
         public void WhenGivenMoodAnalyserProper_ReturnsObject()
@@ -142,7 +146,7 @@ namespace NUnitMoodAnalyser.Test
             try
             {
                 //testing with parameterized constructor
-                MoodAnalyserFactory moodAnalyserFactory = new MoodAnalyserFactory("MoodAnalyser.MoodAnalyser");
+                MoodAnalyserFactory moodAnalyserFactory = new MoodAnalyserFactory("MoodAnalyser.MoodAnalyserr");
                 //creating moodanalyser class with parameterized constructor
                 object tempObject = moodAnalyserFactory.CreateObjectAtRuntime();
                 //Arrange
@@ -163,6 +167,38 @@ namespace NUnitMoodAnalyser.Test
             finally
             {
                 Console.WriteLine("Done Test case: WhenGivenClassName_ReturnsObject");
+            }
+        }
+        /// <summary>
+        /// Test case 5.2 - Given Class Name When Improper Should Throw MoodAnalysisException with Parameterized Constructor
+        /// </summary>
+        [Test]
+        public void GivenClassNameImproper_ThrowsMoodAnalysisException()
+        {
+            try
+            {
+                //passing improper class name will return me Null value which means an improper class name has been
+                //passed and throws me an custom exception NO Such Class Error.
+                MoodAnalyserFactory moodAnalyserFactory = new MoodAnalyserFactory("MoodAnalyser.MoodAnalyser");
+                object tempObject = moodAnalyserFactory.CreateObjectAtRuntime();
+                //Arrange
+                string expected = null;
+                //Act
+                string result = null;
+                //Assert
+                Assert.AreEqual(result, expected);
+            }
+            catch (MoodAnalysisException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Done Test case: WhenGivenClassNameWrong_ThrowsMoodAnalysisException");
             }
         }
     }
